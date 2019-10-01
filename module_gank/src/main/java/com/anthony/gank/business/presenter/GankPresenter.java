@@ -24,7 +24,7 @@ public class GankPresenter extends BasePresenter<GankContact.View> implements Ga
         GankFormRequestClient.getInstance().executeGet(
             formatUrl(UrlConstant.GET_IMAGE_LIST,"16",page+""),
             null,
-            new AppObserver<GankImageResult>(view) {
+            new AppObserver<GankImageResult>(view) {  //这里涉及了默认绑定生命周期
             @Override
             public void onNext(GankImageResult gankImageResult) {
                 super.onNext(gankImageResult);

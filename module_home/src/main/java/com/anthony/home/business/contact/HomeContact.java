@@ -13,14 +13,19 @@ import java.util.List;
  * 功能描述：
  */
 public interface HomeContact {
-    interface View extends BaseView{
-        void onBanner(List<BannerResult.DataBean> bannerResults);
-        void onWeChatAuthors(List<WeChatAuthorResult.DataBean> weChatAuthorResults);
-        void onHomeArticles(HomeArticleResult result);
-    }
-    interface Presenter {
-        void getBanner();
-        void getWeChatAuthors();
-        void getHomeArticles(int page);
-    }
+  interface Presenter {
+    void getBanner();
+
+    void getWeChatAuthors();
+
+    void getHomeArticles(int page);
+  }
+
+  interface View extends BaseView {
+    void onBanner(List<BannerResult.DataBean> bannerResults);
+
+    void onWeChatAuthors(List<WeChatAuthorResult.DataBean> weChatAuthorResults);
+
+    void onHomeArticles(HomeArticleResult result);
+  }
 }

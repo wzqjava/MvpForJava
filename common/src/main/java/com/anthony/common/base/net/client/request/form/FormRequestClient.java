@@ -16,6 +16,13 @@ import okhttp3.ResponseBody;
  * 创建时间:2019/8/6
  * 创建人：anthony.wang
  * 功能描述：表单提交的请求类
+ * 其中 requestObservable 作为请求时候的被观察者，
+ * SubscribeObserver 对象被 subscribe 调用作为观察者绑定到 requestObservable 的被观察者对象上，
+ * 每一次的网络请求就有一堆请求响应的事件处于订阅关系，响应结果出来后通知 View 层刷新UI，
+ * 这个时候可能就会造成内存泄露，比如在 A 页面请求接口想要改变当前页面某个TextView 的值，
+ * 在请求发出后响应结果前，跳转到 B 页面，此刻 A 页面可能被销毁，但是刚刚的请求响应的订阅关系还存在，
+ * 这个时候当响应成功后，就会造成内存泄露的问题
+
  */
 public abstract class FormRequestClient extends BaseNetClient {
 

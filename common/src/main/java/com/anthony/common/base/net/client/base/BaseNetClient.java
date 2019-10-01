@@ -30,8 +30,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public abstract class BaseNetClient{
     @NotNull
     protected abstract String getBaseApiUrl();//服务器地址
-
     protected abstract Cache getCache();//缓存对象
+
     protected Cache defaultCahe;
     private static final int HTTP_TIMEOUT_SECONDS = 10;//超时时间（s）
     private static final int READ_TIMEOUT_SECONDS = 10;//超时时间（s）

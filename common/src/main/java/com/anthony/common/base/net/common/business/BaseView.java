@@ -7,7 +7,7 @@ import com.uber.autodispose.AutoDisposeConverter;
 /**
  * 创建时间:2019/8/6
  * 创建人：anthony.wang
- * 功能描述：
+ * 功能描述：通用方法抽取,方便P层调用
  */
 public interface BaseView {
     void showToast(String msg);

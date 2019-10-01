@@ -14,6 +14,7 @@ import kotlinx.android.synthetic.main.activity_m.*
  *  自己练习的使用mvp+kotlin;
  *  王志强
  *  2019-09-30
+ *
  */
 
 @Route(path = ARouterConstants.GANK_MAIN_TESTACTIVITY)

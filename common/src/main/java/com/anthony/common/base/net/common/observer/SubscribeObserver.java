@@ -8,7 +8,7 @@ import okhttp3.ResponseBody;
 /**
  * 创建时间:2019/9/27
  * 创建人：anthony.wang
- * 功能描述：
+ * 功能描述：SubscribeObserver 是最终的观察者，负责通知订阅事件的状态和信息
  */
 public class SubscribeObserver<T> implements Observer<ResponseBody> {
     private AppObserver<T> appObserver;

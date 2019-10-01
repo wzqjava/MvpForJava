@@ -11,10 +11,12 @@ import java.util.List;
  * 功能描述：
  */
 public interface ProjectPageContact {
-    interface View extends BaseView{
-        void projectList(List<ProjectListResult.DataBean.DatasBean> modelList);
-    }
-    interface Presenter {
-        void getProject(int id,int page);
-    }
+
+  interface Presenter {
+    void getProject(int id, int page);
+  }
+
+  interface View extends BaseView {
+    void projectList(List<ProjectListResult.DataBean.DatasBean> modelList);
+  }
 }

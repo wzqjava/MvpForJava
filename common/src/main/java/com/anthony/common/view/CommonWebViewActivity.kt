@@ -27,6 +27,10 @@ class CommonWebViewActivity : BaseWebActivity<BasePresenter<BaseView>>() {
     @Autowired(name = "webTitle",required = false)
     var webTitle:String? = null
 
+
+
+
+
     override fun getLoadUrl(): String? = url
 
     override fun getX5WebView(): X5WebView = xv_web
@@ -40,7 +44,7 @@ class CommonWebViewActivity : BaseWebActivity<BasePresenter<BaseView>>() {
     }
 
     override fun initData() {
-        ARouter.getInstance().inject(this)
+        ARouter.getInstance().inject(this)  //注解两个传递过来的参数;
         webTitle?.let {
             tv_title.text = webTitle
         }

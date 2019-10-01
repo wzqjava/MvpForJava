@@ -92,6 +92,11 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
         return mContext;
     }
 
+  /**
+   * bindLifecycle是baseView里的接口,绑定生命周期
+   * @param <T>
+   * @return
+   */
     @Override
     public <T> AutoDisposeConverter<T> bindLifecycle() {
         return RxLifecycleUtils.bindLifecycle(this);

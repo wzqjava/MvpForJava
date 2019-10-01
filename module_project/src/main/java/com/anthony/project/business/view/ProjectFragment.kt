@@ -32,12 +32,17 @@ class ProjectFragment : BaseFragment<ProjectPresenter>(), ProjectContact.View {
     }
 
     override fun initData() {
-        mPresenter.getProjectTabs()
+        mPresenter.getProjectTabs() // 请求tab数据
     }
 
+    /**
+     *  设置tab
+     *  王志强
+     *  2019-10-01
+     */
     override fun onProjectTabs(itemList: MutableList<ProjectTreeResult.DataBean>?) {
         val pagerAdapter = ProjectPagerAdapter(childFragmentManager)
-        pagerAdapter.setPages( createProjectPages(itemList))
+        pagerAdapter.setPages(createProjectPages(itemList))
         vp_project_page.adapter = pagerAdapter
         tl_tab.setViewPager(vp_project_page)
 
@@ -48,6 +53,7 @@ class ProjectFragment : BaseFragment<ProjectPresenter>(), ProjectContact.View {
             return ArrayList()
         }
         val projectPageItemList = ArrayList<ProjectPageItem>()
+
         for (projectItem in projectItems) {
             val projectPageItem = ProjectPageItem(projectItem.id,
                     projectItem.name, ARouter.getInstance().build(ARouterConstants.PROJECT_PAGE_FRAGMENT).withInt("pageId", projectItem.id).navigation() as Fragment)

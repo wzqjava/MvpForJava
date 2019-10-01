@@ -71,14 +71,15 @@ public abstract class AppObserver<T> extends BaseObserver<T> {
             view.loadCompleted();
         }
     }
-    @Override
-    protected void onError(ApiException ex) {
-        Logger.t(Constant.NET_LOG_TAG).e(String.format(Constant.NET_EXCEPTION_STRING, ex.getDisplayMessage()));
-        if (view != null) {
-            view.loadError(ex);
-        }
 
+  @Override
+  protected void onError(ApiException ex) {
+    Logger.t(Constant.NET_LOG_TAG).e(String.format(Constant.NET_EXCEPTION_STRING, ex.getDisplayMessage()));
+    if (view != null) {
+      view.loadError(ex);
     }
+
+  }
 
     @Override
     public void onNext(T t) {//这里可以对业务码做统一的一层过滤处理，而且这里可以持有view层实例，支持某一业务码触发view层更新
@@ -106,6 +107,11 @@ public abstract class AppObserver<T> extends BaseObserver<T> {
 
     }
 
+  /**
+   * 拿到具体类后要判断这个泛型类是否是一个集合类，对于类和集合，Gson 对它们的解析方式是不一样的
+   * @param json
+   * @return
+   */
     public T getEntityData(String json) {//这里是处理Json转换成实例对象或者集合的方法
         Gson gson = new Gson();
         T entityData = null;

@@ -5,7 +5,7 @@ import android.graphics.drawable.ShapeDrawable
 import android.graphics.drawable.shapes.OvalShape
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.RelativeLayout
+import android.widget.LinearLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.alibaba.android.arouter.facade.annotation.Route
@@ -56,7 +56,7 @@ class HomeFragment : BaseFragment<HomePresenter>(), HomeContact.View {
         banner = headerView.findViewById(R.id.banner_home)
         banner.setPageTransformer(false,ZoomOutSlideTransformer())
         setStatusBarTranslucent(0)
-        val lp = rl_search_header.layoutParams as RelativeLayout.LayoutParams
+        val lp = rl_search_header.layoutParams as LinearLayout.LayoutParams
         lp.topMargin = StatusBarUtil.getStatusBarHeight(mActivity)
         gridViewPager = headerView.findViewById(R.id.gvp_viewpager)
         srl_home.setOnRefreshListener {
